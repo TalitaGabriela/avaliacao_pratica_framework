@@ -1,0 +1,31 @@
+### LISTAR DISCIPLINAS
+GET http://localhost:3000/disciplinas
+
+### MOSTRAR DISCIPLINA
+GET http://localhost:3000/disciplinas/a
+
+### CRIAR DISCIPLINA
+POST http://localhost:3000/disciplinas
+Content-Type: application/json
+
+{
+    "nome": "Desenvolvimento Baseado em Frameworks",
+    "cargaHoraria": 45,
+    "semestre": 4,
+    "curso": "Tecnologia em Análise e Desenvolvimento de Sistemas"
+}
+
+### ATUALIZAR DISCIPLINA
+PATCH http://localhost:3000/disciplinas/1
+Content-Type: application/json
+
+{
+    "nome": "Desenvolvimento Web 2"
+}
+
+### REMOVER DISCIPLINA
+DELETE http://localhost:3000/disciplinas/1
+
+
+### TODOS OS LOGS
+GET http://localhost:3000/disciplinas/logs
