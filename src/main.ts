@@ -1,16 +1,10 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { AppModule, ObserveInstrument } from './app.module.js';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  //definição do middleware
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true, //permite converter os dados
-      whitelist: true // remove dados que não estão no DTO
-    }),
-  )
+  const app = await NestFactory.create(AppModule, {
+    instrument: ObserveInstrument,
+  });
   await app.listen(process.env.PORT ?? 3000);
 }
-bootstrap();
+await bootstrap();
