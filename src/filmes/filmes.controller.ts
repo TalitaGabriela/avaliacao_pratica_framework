@@ -2,10 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { FilmesService } from './filmes.service.js';
 import { CreateFilmeDto } from './dto/create-filme.dto.js';
 import { UpdateFilmeDto } from './dto/update-filme.dto.js';
+import { LogService } from '../common/log.service.js';
 
 @Controller('filmes')
 export class FilmesController {
-  constructor(private readonly filmesService: FilmesService) {}
+  constructor(private readonly filmesService: FilmesService, private readonly logService: LogService) { }
 
   @Post()
   create(@Body() createFilmeDto: CreateFilmeDto) {
@@ -20,6 +21,11 @@ export class FilmesController {
   @Get('nota/:nota')
   findByNotaMinima(@Param('nota') nota: string) {
     return this.filmesService.findByNotaMinima(+nota);
+  }
+
+  @Get('logs')
+  getLogs() {
+    return this.logService.getLogs();
   }
 
   @Get(':id')

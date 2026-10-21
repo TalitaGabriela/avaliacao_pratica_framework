@@ -1,0 +1,1 @@
+export const APP_NAME = 'Sistema de Filmes';

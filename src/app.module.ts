@@ -3,6 +3,7 @@ import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { FilmesModule } from './filmes/filmes.module.js';
+import { IdGeneratorService } from './common/id-generator/id-generator.service.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -18,6 +19,6 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     FilmesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, IdGeneratorService],
 })
 export class AppModule {}
