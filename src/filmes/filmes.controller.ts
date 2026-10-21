@@ -17,6 +17,11 @@ export class FilmesController {
     return this.filmesService.findAll();
   }
 
+  @Get('nota/:nota')
+  findByNotaMinima(@Param('nota') nota: string) {
+    return this.filmesService.findByNotaMinima(+nota);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.filmesService.findOne(+id);

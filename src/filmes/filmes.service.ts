@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFilmeDto } from './dto/create-filme.dto.js';
 import { UpdateFilmeDto } from './dto/update-filme.dto.js';
-import { Filme } from './entities/filme.entity.ts';
+import { Filme } from './entities/filme.entity.js';
 
 @Injectable()
 export class FilmesService {
@@ -41,5 +41,10 @@ export class FilmesService {
     
     const [removido] = this.filmes.splice(index, 1);
     return removido;
+  }
+
+  // lista os filmes com nota maior ou igual a nota informada
+  findByNotaMinima(nota: number): Filme[] {
+    return this.filmes.filter((f) => f.nota >= nota);
   }
 }
