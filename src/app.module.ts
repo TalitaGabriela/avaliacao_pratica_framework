@@ -4,6 +4,7 @@ import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { FilmesModule } from './filmes/filmes.module.js';
 import { IdGeneratorService } from './common/id-generator/id-generator.service.js';
+import { PipesService } from './common/pipes/pipes.service.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -19,6 +20,6 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     FilmesModule,
   ],
   controllers: [AppController],
-  providers: [AppService, IdGeneratorService],
+  providers: [AppService, IdGeneratorService, PipesService],
 })
 export class AppModule {}
